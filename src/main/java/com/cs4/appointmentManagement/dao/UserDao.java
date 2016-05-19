@@ -8,4 +8,5 @@ public interface UserDao extends GenericDao<User> {
 	public User findByUsername(String username);
 	public List<User> search(String name);
 	public Long findUserID(String username);
+	public User findUserByID(Long id);
 }

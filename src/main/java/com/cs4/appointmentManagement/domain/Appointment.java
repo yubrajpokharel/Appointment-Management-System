@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Appointment {
@@ -15,6 +17,7 @@ public class Appointment {
 	@GeneratedValue
 	private Long Id;
 	
+	@Temporal(TemporalType.DATE)
 	private Date dateTime;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
