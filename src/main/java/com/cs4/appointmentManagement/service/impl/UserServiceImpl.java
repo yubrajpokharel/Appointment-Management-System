@@ -1,13 +1,6 @@
 package com.cs4.appointmentManagement.service.impl;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
-=======
-<<<<<<< HEAD
-import java.util.ArrayList;
-=======
->>>>>>> 9f081c6764fc61333d32e9406ae8335e14bc79c5
->>>>>>> 253abcd8b8f187f43e1069ad4a6355327135db16
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
