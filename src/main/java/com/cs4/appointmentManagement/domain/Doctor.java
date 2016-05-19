@@ -32,7 +32,11 @@ public class Doctor extends User {
 	
 	@OneToMany(mappedBy = "doctor")
 	private List<Appointment> appointmentsList;
+<<<<<<< HEAD
 	
+=======
+<<<<<<< HEAD
+>>>>>>> 253abcd8b8f187f43e1069ad4a6355327135db16
 	
 	public Doctor() {}
 	
@@ -46,6 +50,10 @@ public class Doctor extends User {
 		super.setUserCredentials(user.getUserCredentials());
 		super.setUserType(user.getUserType());
 	}
+=======
+
+	
+>>>>>>> 9f081c6764fc61333d32e9406ae8335e14bc79c5
 
 	public String getFirstName() {
 		return firstName;
@@ -87,10 +95,17 @@ public class Doctor extends User {
 		this.appointmentsList = appointmentsList;
 	}
 
+<<<<<<< HEAD
 	public String getAsString() {
+<<<<<<< HEAD
 		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", specialty=" + specialty
+=======
+=======
+	@Override
+	public String toString() {
+>>>>>>> 9f081c6764fc61333d32e9406ae8335e14bc79c5
+		return "Doctor [firstName=" + firstName + ", lastName=" + lastName + ", speciality=" + speciality
+>>>>>>> 253abcd8b8f187f43e1069ad4a6355327135db16
 				+ ", patients=" + patients + ", appointmentsList=" + appointmentsList + "]";
-	}	
-	
-	
+	}
 }

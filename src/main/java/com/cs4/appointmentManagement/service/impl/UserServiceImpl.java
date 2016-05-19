@@ -1,6 +1,13 @@
 package com.cs4.appointmentManagement.service.impl;
 
+<<<<<<< HEAD
 import java.util.ArrayList;
+=======
+<<<<<<< HEAD
+import java.util.ArrayList;
+=======
+>>>>>>> 9f081c6764fc61333d32e9406ae8335e14bc79c5
+>>>>>>> 253abcd8b8f187f43e1069ad4a6355327135db16
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,21 +41,24 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public void save(User user) {
 		User userToSave = null;
+		String role="";
 		if(user.getUserType().equalsIgnoreCase("DOCTOR")) {			
 			Doctor tempUser = new Doctor(user);
 			tempUser.setFirstName(user.getFname());
 			tempUser.setLastName(user.getLname());
+			role = "ROLE_DOCTOR";
 			
 			userToSave = tempUser;
 		} else if(user.getUserType().equalsIgnoreCase("PATIENT")) {
 			Patient tempUser = new Patient(user);
 			tempUser.setFirstName(user.getFname());
 			tempUser.setLastName(user.getLname());
+			role="ROLE_PATIENT";
 			
 			userToSave = tempUser;
 		}
 		
-		userDao.save(createUserStub(userToSave));
+		userDao.save(createUserStub(userToSave, role));
 	}
 
 
@@ -60,7 +70,7 @@ public class UserServiceImpl implements UserService {
 
 	
 	
-	private User createUserStub(User user) {
+	private User createUserStub(User user, String role) {
 		UserCredentials userCredentials = new UserCredentials();
 		userCredentials.setEnabled(true);
 		userCredentials.setUser(user);
@@ -69,7 +79,7 @@ public class UserServiceImpl implements UserService {
 		userCredentials.setVerifyPassword(encryptService.encrypt(user.getUserCredentials().getVerifyPassword()));
 		
 		List<Authority> auths = new ArrayList<>();
-		auths.add(new Authority(user.getEmail(), "ROLE_USER"));
+		auths.add(new Authority(user.getEmail(), role));
 		
 		userCredentials.setAuthority(auths);
 		
