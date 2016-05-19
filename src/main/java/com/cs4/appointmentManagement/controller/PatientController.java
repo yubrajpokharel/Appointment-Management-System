@@ -73,12 +73,14 @@ public class PatientController {
 		model.addAttribute("past", patientService.totalAppointmentPast(patientID));
 		model.addAttribute("future", patientService.totalAppointmentFuture(patientID));
 		model.addAttribute("doctors", patientService.getMyDoctors(patientID));
+		model.addAttribute("patientId", getUserID(getPrincipal()));
 		return "patient/profile";
 	}
 	
 	@RequestMapping(value="/bookapt/{docID}", method=RequestMethod.GET)
 	public String bookAppointment(Model model, @PathVariable Long docID){
 		model.addAttribute("doctor", docService.findOne(docID));
+		model.addAttribute("patientId", getUserID(getPrincipal()));
 		return "patient/bookAppointment";
 	}
 	
@@ -108,7 +110,7 @@ public class PatientController {
 
 		appointmentSender.sendMessage(appointment);
 		appointmentService.save(appointment);
-		
+		model.addAttribute("patientId", getUserID(getPrincipal()));
 		model.addAttribute("response", "Sucessfully send Appointment request to Dr. "+doc.getFname() + " " +doc.getLastName()+" on "+date.toString());
 		
 		return "patient/appointmentSuccess";

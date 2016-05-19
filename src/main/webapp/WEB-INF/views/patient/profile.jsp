@@ -1,14 +1,16 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <%@ taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<jsp:useBean id="today" class="java.util.Date" />
+<!DOCTYPE html>
 <html>
 <head>
-<title>CS4 - Home</title>
+<title>My Appointments</title>
+<spring:url value="/" var="rootUrl"></spring:url>
 <link rel="stylesheet" type="text/css"
-	href="../../resources/css/main.css">
+	href="${rootUrl}resources/css/main.css">
 <link rel="stylesheet" type="text/css"
 	href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 </head>
@@ -18,14 +20,14 @@
 			CS4 - <span>there is nothing at the top but lets do it</span>
 		</h1>
 		<ul>
-			<li><a href="../../">Home</a></li>
-			<li><a class="active" href="../list">Doctors</a></li>
-			<li><a href="profile.html">Profile</a></li>
-			<li><a href="appointment.html">Appointment</a></li>
-			<li><a href="profile.html">List</a></li>
-			<li class="right"><a href="#about">Login</a></li>
+			
+			<li><a href="${rootUrl}p/">Home</a></li>
+			<li><a href="${rootUrl}doctor/">Doctors</a></li>
+			<li><a class="active"  href="${rootUrl}p/profile/${patientId}">Profile</a></li>
+			<li><a href="${rootUrl}p/">Appointment</a></li>
+			<li class="right"><a href="${rootUrl}logout.do">Logout</a></li>
 			<li class="right">
-				<form action="../../search" method="post"> <input name="query" type="text" class="search" placeholder="Search..."></input></form>
+				<form action="${rootUrl}search/" method="post"> <input name="query" type="text" class="search" placeholder="Search..."></input></form>
 			</li>
 
 		</ul>
@@ -46,7 +48,7 @@
 						class="userpicBig" title="doctor" alt="doctor">
 				</div>
 				<div class="detailsection">
-					<span class="name"><a href="">${profile.firstName}
+					<span class="name"><a href="${rootUrl}p/profile/${patientId}">${profile.firstName}
 							${profile.lastName}</a></span><br> <span>Address
 						:${profile.street}, ${profile.city}, ${profile.state} </span><br> <span>Contact
 						: ${profile.contact}</span><br> <span>Email :
@@ -68,7 +70,7 @@
 								<ol>
 									<c:forEach items="${doctors}" var="doc" >
 										<li>
-											<a href="../../doctor/profile/${doc.id}"><i class="fa fa-stethoscope greencolor" aria-hidden="true"></i> ${doc.firstName} </a>
+											<a href="${rootUrl}doctor/profile/${doc.id}"><i class="fa fa-stethoscope greencolor" aria-hidden="true"></i> ${doc.firstName} </a>
 										</li>
 									</c:forEach>
 								</ol>
@@ -88,8 +90,8 @@
 		<!-- side bar -->
 		<div class="sidebar">
 			<ol>
-				<li><i class="fa fa-clock-o greencolor" aria-hidden="true"></i><a href="../">My Appointments</a></li>
-				<li><i class="fa fa-user greencolor" aria-hidden="true"></i><a href="../profile/${profile.id}">My Profile</a></li>
+				<li><i class="fa fa-clock-o greencolor" aria-hidden="true"></i><a href="${rootUrl}p/">My Appointments</a></li>
+				<li><i class="fa fa-user greencolor" aria-hidden="true"></i><a href="${rootUrl}p/profile/${patientId}">My Profile</a></li>
 			</ol>
 		</div>
 	</div>

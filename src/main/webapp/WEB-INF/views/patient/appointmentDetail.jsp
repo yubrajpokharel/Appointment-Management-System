@@ -7,7 +7,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>CS4 - Home</title>
+<title>My Appointments</title>
 <spring:url value="/" var="rootUrl"></spring:url>
 <link rel="stylesheet" type="text/css"
 	href="${rootUrl}resources/css/main.css">
@@ -21,11 +21,10 @@
 		</h1>
 		<ul>
 			
-			<li><a class="active" href="index.html">Home</a></li>
+			<li><a href="${rootUrl}p/">Home</a></li>
 			<li><a href="${rootUrl}doctor/">Doctors</a></li>
 			<li><a href="${rootUrl}p/profile/${patientId}">Profile</a></li>
-			<li><a href="${rootUrl}p/">Appointment</a></li>
-			<li><a href="${rootUrl}p/">List</a></li>
+			<li><a class="active"  href="${rootUrl}p/">Appointment</a></li>
 			<li class="right"><a href="${rootUrl}logout.do">Logout</a></li>
 			<li class="right">
 				<form action="${rootUrl}search/" method="post"> <input name="query" type="text" class="search" placeholder="Search..."></input></form>
@@ -80,7 +79,7 @@
 		<!-- side bar -->
 		<div class="sidebar">
 			<ol>
-				<li><i class="fa fa-clock-o greencolor" aria-hidden="true"></i><a href="../">My Appointments</a></li>
+				<li><i class="fa fa-clock-o greencolor" aria-hidden="true"></i><a href="${rootUrl}p/">My Appointments</a></li>
 				<li><i class="fa fa-user greencolor" aria-hidden="true"></i><a href="${rootUrl}p/profile/${appointment.patient.id}">My Profile</a></li>
 			</ol>
 		</div>
