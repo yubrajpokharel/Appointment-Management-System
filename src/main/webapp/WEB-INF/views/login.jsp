@@ -43,6 +43,9 @@
 					<div class="row">
 						<input type="submit" title="Login"></input>
 					</div>
+					<div class="row">
+						<p>Don't have a account? <a class="greencolor" href="${rootUrl}register">Register here</a></p>
+					</div>
 				</form>
 			</div>
 		</div>
