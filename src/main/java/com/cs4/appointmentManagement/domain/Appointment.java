@@ -17,7 +17,7 @@ public class Appointment {
 	@GeneratedValue
 	private Long Id;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date dateTime;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

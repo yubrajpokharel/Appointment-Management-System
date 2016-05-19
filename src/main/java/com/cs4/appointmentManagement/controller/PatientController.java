@@ -87,7 +87,7 @@ public class PatientController {
 		appointment.setDescription(request.getParameter("desc"));
 		
 		String dt = request.getParameter("dateTime");
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:MM", Locale.US);
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm", Locale.US);
 		Date date = sdf.parse(dt);
 		
 		appointment.setDateTime(date);
