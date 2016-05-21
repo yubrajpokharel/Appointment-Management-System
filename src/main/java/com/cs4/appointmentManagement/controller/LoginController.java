@@ -16,6 +16,12 @@ import com.cs4.appointmentManagement.service.DoctorService;
 import com.cs4.appointmentManagement.service.UserService;
 import com.cs4.appointmentManagement.service.impl.UserCredentialsServiceImpl;
 
+
+/**
+ * This controller is used to perform the login and registration tasks for the frontend user
+ * 
+ *
+ */
 @Controller
 public class LoginController {
 
@@ -28,11 +34,19 @@ public class LoginController {
 	@Autowired
 	DoctorService doctorService;
 
+	/**
+	 * This method is used to show the login page to the frontend user
+	 * @return login page
+	 */
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String getLoginPage() {
 		return "login";
 	}
 
+	/**
+	 * This method is used to show the registration page to the user
+	 * @return register page to the user
+	 */
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String register(ModelMap model) {
 		User user = new User();
@@ -42,6 +56,12 @@ public class LoginController {
 		return "register";
 	}
 
+	/**
+	 * This method is used to perform the registration task once the registration form is submitted
+	 * @param user - contain the user details
+	 * @param result - binds the users details with the user model
+	 * @return the message if the registration is successful
+	 */
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String saveRegister(@Valid User user, BindingResult result, ModelMap model) {
 		if (result.hasErrors()) {
