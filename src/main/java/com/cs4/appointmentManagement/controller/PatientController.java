@@ -30,6 +30,12 @@ import com.cs4.appointmentManagement.service.DoctorService;
 import com.cs4.appointmentManagement.service.PatientService;
 import com.cs4.appointmentManagement.service.UserService;
 
+/**
+ * This controller is used to control the patients
+ * Here it includes all the methods that are used to manage the patient
+ * @author yubraj
+ *
+ */
 @Controller
 @RequestMapping("/p")
 public class PatientController {
@@ -50,6 +56,13 @@ public class PatientController {
 	@Autowired
 	DoctorService docService;
 	
+	/**
+	 * this method is used to display the home page for the patient upon 
+	 * their successful login in the system
+	 * @param url (/ or /home)
+	 * @return home page for the patient
+	 * 
+	 */
 	@RequestMapping(value = {"/", "/home"})
 	public String listAppointments(Model model){
 		model.addAttribute("appointments", appointmentService.getAppointmentsByUserID(getUserID(getPrincipal())));
@@ -60,6 +73,13 @@ public class PatientController {
 		return "patient/appointments";
 	}
 	
+	/**
+	 * this method is used to show the appointment details to the the patient
+	 * patient must be login into the system
+	 * @param Long appointmentID
+	 * @return appointment details for the patient
+	 * 
+	 */
 	@RequestMapping(value = "/a/{appointmentId}")
 	public String appointmentDetail(Model model, @PathVariable Long appointmentId){
 		model.addAttribute("appointment", appointmentService.findOne(appointmentId));
@@ -67,6 +87,12 @@ public class PatientController {
 		return "patient/appointmentDetail";
 	}
 	
+	/**
+	 * 
+	 * this method is used to show the patient profile page
+	 * @param patientID
+	 * @return patient profile page according to the patientID 
+	 */
 	@RequestMapping(value="/profile/{patientID}")
 	public String myProfile(Model model, @PathVariable Long patientID){
 		model.addAttribute("profile", patientService.findOne(patientID));
@@ -77,6 +103,12 @@ public class PatientController {
 		return "patient/profile";
 	}
 	
+	/**
+	 * 
+	 * this method is used to book an appointment to the specific doctor
+	 * @param docID
+	 * @return the view for the appointment registration
+	 */
 	@RequestMapping(value="/bookapt/{docID}", method=RequestMethod.GET)
 	public String bookAppointment(Model model, @PathVariable Long docID){
 		model.addAttribute("doctor", docService.findOne(docID));
@@ -84,6 +116,13 @@ public class PatientController {
 		return "patient/bookAppointment";
 	}
 	
+	
+	/**
+	 * 
+	 * This method is used to generate the appointment once submitted the form
+	 * @return the successful message after the appointment is generated to the doctor
+	 * @throws ParseException
+	 */
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value="/appointment.do", method=RequestMethod.POST)
 	public String saveAppointment(ModelMap model, HttpServletRequest request) throws ParseException{
@@ -117,7 +156,10 @@ public class PatientController {
 	}
 	
 	
-	//Getting User-Name
+	/**
+	 * This method is used to get the currently logged in username
+	 * @return logged in userName
+	 */
 		private String getPrincipal(){
 			String userName = null;
 			Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
@@ -129,7 +171,11 @@ public class PatientController {
 			}
 			return userName;
 		}
-		
+		/**
+		 * This method will return the user ID
+		 * @param username
+		 * @return userID
+		 */
 		private Long getUserID(String username){
 			return userService.findUserID(username);
 		}

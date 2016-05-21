@@ -5,7 +5,7 @@
 <html>
 <head>
 <title>CS4 - Home</title>
-<link rel="stylesheet" type="text/css" href="resources/css/main.css">
+<link rel="stylesheet" type="text/css" href="${rootUrl}resources/css/main.css">
 <link rel="stylesheet" type="text/css"
 	href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css">
 </head>

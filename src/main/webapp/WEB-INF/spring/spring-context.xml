@@ -20,6 +20,7 @@
     <!-- Classpath scanning of @Component, @Service, etc annotated class -->
     <context:component-scan base-package="com.cs4.appointmentManagement.controller" />
     <context:component-scan base-package="com.cs4.appointmentManagement.domain" />
+    <context:component-scan base-package="com.cs4.appointmentManagement.exceptions" />
 
     <!-- Resolve view name into jsp file located on /WEB-INF -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

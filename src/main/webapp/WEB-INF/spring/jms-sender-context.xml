@@ -10,7 +10,7 @@
 
 	<bean id="jmsConnectionFactory"
 		class="org.apache.activemq.ActiveMQConnectionFactory" 
-		p:brokerURL="tcp://10.10.36.81:61616" />
+		p:brokerURL="tcp://192.168.137.238:61616" />
 		
 	<bean id="jmsCachedConnectionFactory" 
 		class="org.springframework.jms.connection.CachingConnectionFactory"
