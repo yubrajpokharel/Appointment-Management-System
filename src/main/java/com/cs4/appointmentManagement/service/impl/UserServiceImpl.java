@@ -29,7 +29,10 @@ public class UserServiceImpl implements UserService {
 		return userDao.findByUsername(username);
 	}
 
-
+/**
+ * This method is used to save the user
+ * @param user - a user object
+ */
 	@Override
 	@Transactional
 	public void save(User user) {
@@ -63,6 +66,11 @@ public class UserServiceImpl implements UserService {
 
 	
 	
+	/**
+	 * This method is used to assign roles to the user
+	 * @param user
+	 * @param role
+	 */
 	private User createUserStub(User user, String role) {
 		UserCredentials userCredentials = new UserCredentials();
 		userCredentials.setEnabled(true);
@@ -81,13 +89,22 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-
+	/**
+	 * This method is used to find the user by username
+	 * @param username - String
+	 * @return userID
+	 */
 	@Override
 	public Long findUserID(String username) {
 		System.out.println("UService Impl: "+username);
 		return  (Long)userDao.findUserID(username);
 	}
 	
+	/**
+	 * This method is used to find user by user ID
+	 * @param id
+	 * @return User Obj
+	 */
 	@Override
 		public User findUserByID(Long id) {
 			

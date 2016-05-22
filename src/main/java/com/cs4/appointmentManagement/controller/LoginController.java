@@ -19,8 +19,6 @@ import com.cs4.appointmentManagement.service.impl.UserCredentialsServiceImpl;
 
 /**
  * This controller is used to perform the login and registration tasks for the frontend user
- * 
- *
  */
 @Controller
 public class LoginController {

@@ -51,12 +51,21 @@ public class AppointmentServiceImpl implements AppointmentService {
 		return (List<Appointment>) appointmentDao.findAll();
 	}
 
+	/**
+	 * this method is used to find all the appointments related to certain doctors
+	 * @param id
+	 * @return list of appointments
+	 */
 	@Override
 	public List<Appointment> findByDoctorId(Long id) {
 		return (List<Appointment>) appointmentDao.findByDoctorId(id);
 	}
 
-	//@PreAuthorize(value="ROLE_PATIENT")
+	/**
+	 * this method is used to display all the appointments of the patients
+	 * @param id
+	 * @return the list of appointments
+	 */
 	@Override
 	public List<Appointment> getAppointmentsByUserID(Long id) {
 		return (List<Appointment>) appointmentDao.getAppointmentsByUserID(id);

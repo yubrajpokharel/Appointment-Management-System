@@ -9,6 +9,9 @@ import com.cs4.appointmentManagement.service.EncryptService;
 @Component
 public class EncryptServiceImpl implements EncryptService {
 
+	/**
+	 * This method is used to encrypt the user's password
+	 */
 	@Override
 	public String encrypt(String password) {
 		return Base64.encodeBase64String(DigestUtils.sha256(password));

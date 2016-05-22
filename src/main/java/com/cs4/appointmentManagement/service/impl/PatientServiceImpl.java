@@ -32,26 +32,49 @@ public class PatientServiceImpl implements PatientService{
 		return patientDao.findOne(id);
 	}
 
+	/**
+	 * This method is used to update the patient info
+	 * @param patient
+	 */
 	@Override
 	public Patient update(Patient patient) {
 		return patientDao.update(patient);
 	}
-
+	
+	/**
+	 * This method is used to list all the patient
+	 * @return patient list
+	 */
 	@Override
 	public List<Patient> findAll() {
 		return (List<Patient>)patientDao.findAll();
 	}
 
+	/**
+	 * This method is used to find the patient past appointments number
+	 * @param patient ID
+	 * @return no. of appointments in the past 
+	 */
 	@Override
 	public int totalAppointmentPast(Long id) {
 		return patientDao.totalAppointmentPast(id);
 	}
 
+	/**
+	 * This method is used to find the patient coming appointments number
+	 * @param patient ID
+	 * @return no. of appointments in the future 
+	 */
 	@Override
 	public int totalAppointmentFuture(Long id) {
 		return patientDao.totalAppointmentFuture(id);
 	}
 
+	/**
+	 * This method is used to list all the doctors to whom patients have taken appointment
+	 * @param id - Long
+	 * @return list of Doctors
+	 */
 	@Override
 	public List<Doctor> getMyDoctors(Long id) {
 		return patientDao.getMyDoctors(id);

@@ -48,11 +48,20 @@ public class UserCredentialsServiceImpl implements UserCredentialsService {
 		
 	}
 
+	/**
+	 * This method is used return the user Credential by using the username
+	 * @param username
+	 * @return UserCredentials
+	 */
 	@Override
 	public UserCredentials findByUsername(String username) {
 		return (UserCredentials) usercredentialsDao.findByUsername(username);
 	}
 	
+	/**
+	 * This method is used to return the list of user authorities
+	 * @return Authorities of User
+	 */
 	@Override
 	public List<Authority> getAllAuthorities(){
 		return (List<Authority>) usercredentialsDao.getAllAuthorities();

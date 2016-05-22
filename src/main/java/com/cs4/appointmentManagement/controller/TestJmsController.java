@@ -11,6 +11,11 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.cs4.appointmentManagement.domain.Appointment;
 import com.cs4.appointmentManagement.jms.MessageSender;
 
+
+/**
+ * This controller class is used to test the JMS messaging 
+ *
+ */
 @Controller
 public class TestJmsController {
 	@Autowired

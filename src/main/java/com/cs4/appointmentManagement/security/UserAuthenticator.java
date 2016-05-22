@@ -18,6 +18,11 @@ import com.cs4.appointmentManagement.service.EncryptService;
 import com.cs4.appointmentManagement.service.UserCredentialsService;
 import com.cs4.appointmentManagement.service.UserService;
 
+
+/**
+ * This class is responsible for managing the user authentication
+ *
+ */
 public class UserAuthenticator implements AuthenticationProvider {
 
 	@Autowired
@@ -26,6 +31,10 @@ public class UserAuthenticator implements AuthenticationProvider {
 	@Autowired
 	private EncryptService encryptService;
 	
+	
+	/**
+	 * This method is used to authenticate the user once they enter their username and password
+	 */
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		System.out.println(authentication.getName());
