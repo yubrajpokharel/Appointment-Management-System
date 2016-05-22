@@ -1,0 +1,4 @@
+com.cs4.appointmentManagement.controller
+com.cs4.appointmentManagement.dao.impl
+com.cs4.appointmentManagement.security
+com.cs4.appointmentManagement.service.impl
