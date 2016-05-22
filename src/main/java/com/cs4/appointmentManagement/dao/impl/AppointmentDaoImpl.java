@@ -14,6 +14,11 @@ public class AppointmentDaoImpl extends GenericDaoImpl<Appointment> implements A
 		super.setDaoType(Appointment.class);
 	}
 
+	/**
+	 * this method is used to list all the appointments by user id
+	 * @param id
+	 * @return list of appointments
+	 */
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Appointment> getAppointmentsByUserID(Long id) {
@@ -24,6 +29,10 @@ public class AppointmentDaoImpl extends GenericDaoImpl<Appointment> implements A
 		return (List<Appointment>) query.getResultList();
 	}
 
+	/**
+	 * this method returns the list of appointments 
+	 * @param id
+	 */
 	@Override
 	public List<Appointment> findByDoctorId(Long id) {
 		return entityManager.createQuery("FROM Appointment a WHERE a.doctor.id = :doctorId")
